@@ -1,23 +1,6 @@
 <?
 
 
-
-require_once 'Database.php';
-
-//Здесь будут многочисленные проверки массива $_GET и $_POST
-if (isset($_GET['sort']) and array_search($_GET['sort'], ['by-date-added', 'by-surname', 'by-birthday'])) {
-    $sort = $_GET['sort'];
-} else {
-    $sort = 'by-date-added';
-}
-if (isset($_GET['page']) and is_integer((int) $_GET['page'])) {
-    $page = $_GET['page'];
-} else {
-    $page = 1;
-}
-
-$userList = $db->getUserPage($page, $sort);
-
 //echo "<pre>";
 ?>
 

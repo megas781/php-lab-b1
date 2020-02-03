@@ -13,7 +13,7 @@ class Database {
     public function getUsersWithLimit(int $upperLimit, int $lowerLimit, $sort = 'by-date-added') {
         switch ($sort){
             case 'by-date-added':
-                return $this->conn->query("select *, DATE_FORMAT(users.birthday, '%e %b, %Y') as birthday from users order by id limit " . $lowerLimit . ", " . $upperLimit)->fetch_all(MYSQLI_ASSOC);
+                return $this->conn->query("select *, DATE_FORMAT(users.birthday, '%e %b, %Y') as birthday from users order by id desc limit " . $lowerLimit . ", " . $upperLimit)->fetch_all(MYSQLI_ASSOC);
             case 'by-surname':
                 return $this->conn->query("select *, DATE_FORMAT(users.birthday, '%e %b, %Y') as birthday from users order by surname limit " . $lowerLimit . ", " . $upperLimit)->fetch_all(MYSQLI_ASSOC);
             case 'by-birthday':
