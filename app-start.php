@@ -13,3 +13,4 @@ define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT'] . $dirname);
 define('HTTP_ROOT', 'http://' . $_SERVER['HTTP_HOST'] . $dirname);
 
 require_once 'App.php';
+require_once 'Database.php';

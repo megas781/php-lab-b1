@@ -5,7 +5,7 @@
 ?>
 
 
-<div class="user-list" style="margin-bottom: 32px;">
+<div class="user-edit-list" style="margin-bottom: 32px;">
 
 <? for ($i = 0; $i <= sizeof($userList) - 1; $i++):
     $user = $userList[$i];?>

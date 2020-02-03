@@ -30,10 +30,15 @@ class Database {
         return $this->getUsersWithLimit($upperLimit, $lowerLimit, $sort);
     }
 
+    public function getUserNames(){
+        return $this->conn->query("select id, concat(surname, ' ', name) as fullname from users order by fullname")->fetch_all(MYSQLI_ASSOC);
+    }
+
 //    Кол-во пользователей
     public function getUsersCount() {
         return $this->conn->query("select count(*) from users;")->fetch_row()[0];
     }
+//    Кол-во страниц
     public function getPagesCount() {
         return ceil(((float)$this->getUsersCount())/$this->pageSize);
     }
