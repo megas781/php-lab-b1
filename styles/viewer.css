@@ -1,0 +1,16 @@
+.user-list {
+
+}
+.user-cell {
+    background-color: #f9f9f9;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-shadow: 1px 1px 3px black;
+}
+.user-name {
+    margin-top: 4px;
+}
+
+.user__prop-value {
+    float: right;
+}
