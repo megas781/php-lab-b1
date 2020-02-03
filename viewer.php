@@ -10,7 +10,13 @@ if (isset($_GET['sort']) and array_search($_GET['sort'], ['by-date-added', 'by-s
 } else {
     $sort = 'by-date-added';
 }
-$userList = $db->getUserPage(1, $sort);
+if (isset($_GET['page']) and is_integer((int) $_GET['page'])) {
+    $page = $_GET['page'];
+} else {
+    $page = 1;
+}
+
+$userList = $db->getUserPage($page, $sort);
 
 //echo "<pre>";
 ?>
@@ -33,4 +39,15 @@ $userList = $db->getUserPage(1, $sort);
     </div>
 
 <? endfor ?>
+</div>
+
+<div class="pagination">
+
+    <? for ($i = 1; $i <= $db->getPagesCount(); $i++): ?>
+        <div class="pagination__item"><a href="./?sort=<?=$_GET['sort']?>&page=<?=$i?>" class="pagination__link" <?= ($page == $i) ? 'disabled' : ''?>><?=$i?></a></div>
+    <? endfor ?>
+    <!--    <div class="pagination__item"><a href="" class="pagination__link">2</a></div>-->
+<!--    <div class="pagination__item"><a href="" class="pagination__link">3</a></div>-->
+<!--    <div class="pagination__item"><a href="" class="pagination__link">4</a></div>-->
+<!--    <div class="pagination__item"><a href="" class="pagination__link">Последнаяя</a></div>-->
 </div>

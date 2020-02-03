@@ -34,6 +34,9 @@ class Database {
     public function getUsersCount() {
         return $this->conn->query("select count(*) from users;")->fetch_row()[0];
     }
+    public function getPagesCount() {
+        return ceil(((float)$this->getUsersCount())/$this->pageSize);
+    }
 //    Пользователь по ID
     public function getUserById($id) {
         return $this->conn->query('select * from users where id = "' . $id . '"')->fetch_assoc();
@@ -43,5 +46,4 @@ class Database {
 
 
 $db = new Database();
-//print_r($db->getUserById(1));
 ?>

@@ -14,3 +14,22 @@
 .user__prop-value {
     float: right;
 }
+
+.pagination {
+    display: flex;
+    margin: 0 auto 32px;
+    justify-content: center;
+
+}
+.pagination__item {
+}
+.pagination__link {
+    height: 24px;
+    width: 24px;
+    display: block;
+}
+.pagination__link[disabled] {
+    pointer-events: none;
+    text-decoration: none;
+    color: #505050;
+}
