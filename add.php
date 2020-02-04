@@ -12,15 +12,16 @@ $isAdded = isset($_POST['name']);
 if ($isAdded) {
     //Добавляем
     $db->addUser(
-        $_POST['surname'],
-        $_POST['name'],
-        $_POST['middle_name'],
-        $_POST['is_male'],
-        $_POST['birthday'],
-        $_POST['phone_number'],
-        $_POST['address'],
-        $_POST['email'],
-        $_POST['comment']);
+        htmlspecialchars($_POST['id']),
+        htmlspecialchars($_POST['surname']),
+        htmlspecialchars($_POST['name']),
+        htmlspecialchars($_POST['middle_name']),
+        htmlspecialchars($_POST['is_male']),
+        htmlspecialchars($_POST['birthday']),
+        htmlspecialchars($_POST['phone_number']),
+        htmlspecialchars($_POST['address']),
+        htmlspecialchars($_POST['email']),
+        htmlspecialchars($_POST['comment']));
 }
 
 ?>
