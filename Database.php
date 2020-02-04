@@ -47,6 +47,26 @@ class Database {
         return $this->conn->query('select * from users where id = "' . $id . '"')->fetch_assoc();
     }
 
+
+//    Сохранение пользователя
+    public function saveUser($id, $surname, $name, $middle_name, $is_male, $birthday, $phone_number, $address, $email, $comment) {
+//        echo '<pre>';
+//        print_r($_POST);
+        $query = "
+        update users set surname = '".$surname."',
+                 name = '".$name."',
+                 middle_name = '".$middle_name."',
+                 is_male = '".$is_male."',
+                 birthday = '".$birthday."',
+                 phone_number = '".$phone_number."',
+                 address = '".$address."',
+                 email = '".$email."',
+                 comment = '".$comment."' where id = '".$id."'";
+
+//        echo 'query:<br>' . $query;
+        $this->conn->query($query);
+    }
+
 }
 
 

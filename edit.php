@@ -1,7 +1,7 @@
 <?php
 
 require_once 'app-start.php';
-
+require_once 'Database.php';
 
 ?>
 
@@ -11,10 +11,27 @@ require_once 'app-start.php';
 
 <!--<h1>Здесь будет контент</h1>-->
 <?
+//Действия по нажатии на сохранение
+do {
+    if (isset($_POST['id'])) {
+//        print_r($_POST);
+        $db->saveUser(
+            $_POST['id'],
+            $_POST['surname'],
+            $_POST['name'],
+            $_POST['middle_name'],
+            $_POST['is_male'],
+            $_POST['birthday'],
+            $_POST['phone_number'],
+            $_POST['address'],
+            $_POST['email'],
+            $_POST['comment']);
+    }
+} while (false);
+
 
 //Сохранение
 $isSaved = isset($_POST['id']);
-
 
 //Достаем список для ссылок
 $userNames = $db->getUserNames();
@@ -63,8 +80,10 @@ if (isset($_GET['userId']) and is_int((int)$_GET['userId'])) {
                     <td colspan="2">
                         <div>Пол</div>
                         <div>
-                            <label for="male"><input name="male" id="male" type="radio" <?= $editedUser['is_male'] == 1 ? 'checked' : '' ?>>Мужской</label>
-                            <label for="female"><input name="male" id="female" type="radio" <?= $editedUser['is_male'] != 1 ? 'checked' : '' ?>>Женский</label>
+                            <label for="male"><input name="is_male" id="male" value="1"
+                                                     type="radio" <?= $editedUser['is_male'] == 1 ? 'checked' : '' ?>>Мужской</label>
+                            <label for="female"><input name="is_male" id="female"
+                                                       type="radio" value="0" <?= $editedUser['is_male'] != 1 ? 'checked' : '' ?>>Женский</label>
                         </div>
                     </td>
                 </tr>
@@ -88,12 +107,17 @@ if (isset($_GET['userId']) and is_int((int)$_GET['userId'])) {
                 </tr>
                 <tr>
                     <td colspan="2">
+                        <textarea name="comment" id="" style="width: 100%; font-size: 16px; resize: vertical" rows="4"><?=$editedUser['comment']?></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
                         <input type="submit" value="Сохранить" style="width: 100%; font-size: 20px;">
                     </td>
                 </tr>
-                <input type="hidden" name="id" value="<?=$editedUser['id']?>">
+                <input type="hidden" name="id" value="<?= $editedUser['id'] ?>">
             </table>
-        <? endif;?>
+        <? endif; ?>
     </form>
 </div>
 
