@@ -15,7 +15,7 @@ require_once 'Database.php';
 do {
     if (isset($_POST['id'])) {
 //        print_r($_POST);
-        $db->saveUser(
+        $db->updateUser(
             $_POST['id'],
             $_POST['surname'],
             $_POST['name'],
@@ -63,7 +63,7 @@ if (isset($_GET['userId']) and is_int((int)$_GET['userId'])) {
             <h3><?= 'Пользователь ' . $_POST['surname'] . ' ' . $_POST['name'] . ' сохранен' ?></h3>
         <? else: ?>
             <h3>Редактирование</h3>
-            <table>
+            <table class="edit-form__table">
                 <tr>
                     <td><label for="">Фамилия</label></td>
                     <td><input type="text" name="surname" required value="<?= $editedUser['surname'] ?>"></td>

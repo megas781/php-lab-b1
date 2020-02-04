@@ -16,3 +16,14 @@
     flex-grow: 1;
     padding: 16px;
 }
+
+.edit-form__table {
+    width: 100%;
+}
+.edit-form__table input[type=tel],.edit-form__table input[type=text],.edit-form__table input[type=email],.edit-form__table textarea {
+    width: 100%;
+}
+
+.add-form {
+
+}

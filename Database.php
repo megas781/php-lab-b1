@@ -49,7 +49,7 @@ class Database {
 
 
 //    Сохранение пользователя
-    public function saveUser($id, $surname, $name, $middle_name, $is_male, $birthday, $phone_number, $address, $email, $comment) {
+    public function updateUser($id, $surname, $name, $middle_name, $is_male, $birthday, $phone_number, $address, $email, $comment) {
 //        echo '<pre>';
 //        print_r($_POST);
         $query = "
@@ -67,6 +67,30 @@ class Database {
         $this->conn->query($query);
     }
 
+//    Добавление нового пользователя
+    public function addUser($surname, $name, $middle_name, $is_male, $birthday, $phone_number, $address, $email, $comment) {
+        $this->conn->query("
+        insert into users (
+                   surname,
+                   name,
+                   middle_name,
+                   is_male,
+                   birthday,
+                   phone_number,
+                   address,
+                   email,
+                   comment)
+        value ('".$surname."', 
+               '".$name."',
+               '".$middle_name."',
+               '".$is_male."',
+               '".$birthday."',
+               '".$phone_number."',
+               '".$address."',
+               '".$email."',
+               '".$comment."')
+               ");
+    }
 }
 
 

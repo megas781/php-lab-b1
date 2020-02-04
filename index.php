@@ -17,7 +17,7 @@ if (isset($_GET['sort']) and array_search($_GET['sort'], ['by-date-added', 'by-s
 } else {
     $sort = 'by-date-added';
 }
-if (isset($_GET['page']) and is_integer((int) $_GET['page'])) {
+if (isset($_GET['page']) and is_integer((int) $_GET['page']) and ((int) $_GET['page'] > 0)) {
     $page = $_GET['page'];
 } else {
     $page = 1;
