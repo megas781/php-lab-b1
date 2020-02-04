@@ -179,6 +179,7 @@ input {
 ._flex-centering {
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
 }
 .work-area {
     width: 960px;

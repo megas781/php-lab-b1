@@ -53,7 +53,7 @@ if (isset($_GET['userId']) and is_int((int)$_GET['userId'])) {
 <div class="split-view">
     <div class="user-edit-list">
         <? for ($i = 0; $i <= sizeof($userNames) - 1; $i++): ?>
-            <div><a href="?userId=<?= $userNames[$i]['id'] ?>"
+            <div class="user-edit-list__item"><a href="?userId=<?= $userNames[$i]['id'] ?>"
                     class="user-edit-list__link"><?= $userNames[$i]['fullname'] ?></a></div>
         <? endfor ?>
     </div>

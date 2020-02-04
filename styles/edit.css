@@ -7,6 +7,9 @@
     white-space: normal;
     padding: 16px;
 }
+.user-edit-list__item {
+    padding: 2px;
+}
 .user-edit-list__link {
     display: block;
 }

@@ -27,7 +27,7 @@
 <div class="pagination">
 
     <? for ($i = 1; $i <= $db->getPagesCount(); $i++): ?>
-        <div class="pagination__item"><a href="./?sort=<?=$_GET['sort']?>&page=<?=$i?>" class="pagination__link" <?= ($page == $i) ? 'disabled' : ''?>><?=$i?></a></div>
+        <div class="pagination__item"><a href="./?sort=<?=$sort?>&page=<?=$i?>" class="pagination__link" <?= ($page == $i) ? 'disabled' : ''?>><?=$i?></a></div>
     <? endfor ?>
     <!--    <div class="pagination__item"><a href="" class="pagination__link">2</a></div>-->
 <!--    <div class="pagination__item"><a href="" class="pagination__link">3</a></div>-->

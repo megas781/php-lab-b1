@@ -31,7 +31,7 @@ class Database {
     }
 
     public function getUserNames(){
-        return $this->conn->query("select id, concat(surname, ' ', name) as fullname from users order by fullname")->fetch_all(MYSQLI_ASSOC);
+        return $this->conn->query("select id, surname, UPPER(substr(users.name, 1, 1)) as name_abbr, UPPER(substr(users.middle_name, 1, 1)) as middle_name_abbr, concat(surname, ' ', name) as fullname from users order by fullname")->fetch_all(MYSQLI_ASSOC);
     }
 
 //    Кол-во пользователей
@@ -90,6 +90,11 @@ class Database {
                '".$email."',
                '".$comment."')
                ");
+    }
+
+//    Удаление пользователя
+    public function deleteUserById(int $id) {
+        $this->conn->query("delete from users where id = '".$id."'");
     }
 }
 
