@@ -66,15 +66,15 @@ if (isset($_GET['userId']) and is_int((int)$_GET['userId'])) {
             <table class="edit-form__table">
                 <tr>
                     <td><label for="">Фамилия</label></td>
-                    <td><input type="text" name="surname" required value="<?= $editedUser['surname'] ?>"></td>
+                    <td><input type="text" name="surname" pattern="^[А-Яа-яA-Za-z]+(-[А-Яа-яA-Za-z]+)?$" required value="<?= $editedUser['surname'] ?>"></td>
                 </tr>
                 <tr>
                     <td><label for="">Имя</label></td>
-                    <td><input type="text" name="name" required value="<?= $editedUser['name'] ?>"></td>
+                    <td><input type="text" name="name" pattern="^[А-Яа-яA-Za-z]+(-[А-Яа-яA-Za-z]+)?$" required value="<?= $editedUser['name'] ?>"></td>
                 </tr>
                 <tr>
                     <td><label for="">Отчество</label></td>
-                    <td><input type="text" name="middle_name" value="<?= $editedUser['middle_name'] ?>"></td>
+                    <td><input type="text" name="middle_name" pattern="^[А-Яа-яA-Za-z]+(-[А-Яа-яA-Za-z]+)?$" value="<?= $editedUser['middle_name'] ?>"></td>
                 </tr>
                 <tr>
                     <td colspan="2">

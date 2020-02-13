@@ -12,7 +12,6 @@ $isAdded = isset($_POST['name']);
 if ($isAdded) {
     //Добавляем
     $db->addUser(
-        htmlspecialchars($_POST['id']),
         htmlspecialchars($_POST['surname']),
         htmlspecialchars($_POST['name']),
         htmlspecialchars($_POST['middle_name']),
@@ -36,15 +35,15 @@ if ($isAdded) {
             <table class="edit-form__table">
                 <tr>
                     <td><label for="">Фамилия</label></td>
-                    <td><input type="text" name="surname" required value=""></td>
+                    <td><input type="text" name="surname" pattern="^[А-Яа-яA-Za-z]+(-[А-Яа-яA-Za-z]+)?$" required value=""></td>
                 </tr>
                 <tr>
                     <td><label for="">Имя</label></td>
-                    <td><input type="text" name="name" required value=""></td>
+                    <td><input type="text" name="name" pattern="^[А-Яа-яA-Za-z]+(-[А-Яа-яA-Za-z]+)?$" required value=""></td>
                 </tr>
                 <tr>
                     <td><label for="">Отчество</label></td>
-                    <td><input type="text" name="middle_name" value=""></td>
+                    <td><input type="text" name="middle_name" pattern="^[А-Яа-яA-Za-z]+(-[А-Яа-яA-Za-z]+)?$" value=""></td>
                 </tr>
                 <tr>
                     <td colspan="2">
